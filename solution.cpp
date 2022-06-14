@@ -18,14 +18,16 @@ using namespace std;
     graph
   - topological sort plus DFS to detect cycles
   - 0 -> 1 -> 2 -> 0
-    - during the DFS visit, we mark everyone as "visiting"
-      if there are not marked as "visited" before while we
-      are visiting down the DFS path. If we ever re-visit a
-      a node that has been marked as visiting before then we know
-      we have visited the same node twice hence there is a
-      cycle
+    - during the DFS traversal, we mark everyone as "visiting"
+      not marked as "visited" before. The nodes that are marked as
+      "visited" means they have been visited by other paths, so we
+       can just ignore them. If we ever re-visit a "visiting" node then we
+      know there is a cycle in the path
     - we visit the 0 more than once during the same DFS visit
       - there is a cycle
+
+  - time complexity O(n)
+    - the edges are less than the vertexes most likely O(V+E) -> O(V)
 
 */
 
